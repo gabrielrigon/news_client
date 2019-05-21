@@ -8,22 +8,34 @@ import Sidebar from './Sidebar'
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%
+  height: 100%;
 `
 
 class News extends Component {
+  componentDidMount = () => {
+    const { fetchNews } = this.props
+    fetchNews()
+  }
+
   render() {
+    const { news, sources } = this.props
+
     return (
       <Wrapper>
-        <Sidebar />
-        <Content />
+        <Sidebar sources={sources} />
+        <Content news={news} />
       </Wrapper>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return {}
+  const { news, sources } = state.news
+
+  return {
+    news,
+    sources
+  }
 }
 
 const mapDispatchToProps = dispatch => {
