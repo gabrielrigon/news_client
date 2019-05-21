@@ -1,22 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { SidebarMenu } from '../../components'
-
 const Wrapper = styled.div`
   float: left;
   height: 100%;
-  min-width: 200px;
-  position: fixed;
-  width: 25%;
+  margin-left: 25%;
+  position: relative;
+  width: 75%;
 `
 
-const Sidebar = props => {
+const SidebarMenu = props => {
   return (
     <Wrapper>
-      <SidebarMenu />
+      <h1>SidebarMenu</h1>
     </Wrapper>
   )
 }
 
-export default Sidebar
+export default SidebarMenu

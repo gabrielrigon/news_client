@@ -1,9 +1,14 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import { store } from './store'
+
 import { News } from './screens'
 
 function App() {
   return (
-    <News />
+    <Provider store={store}>
+      <News />
+    </Provider>
   )
 }
 

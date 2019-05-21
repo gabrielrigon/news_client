@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { newsActions } from '../../actions'
 
 import Content from './Content'
 import Sidebar from './Sidebar'
@@ -20,4 +22,19 @@ class News extends Component {
   }
 }
 
-export default News
+const mapStateToProps = state => {
+  return {}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchNews: () => {
+      dispatch(newsActions.fetch())
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(News)
