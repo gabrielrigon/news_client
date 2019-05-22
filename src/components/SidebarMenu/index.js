@@ -23,13 +23,13 @@ const Divider = styled.hr`
 `
 
 const SidebarMenu = props => {
-  const { items } = props
+  const { items, currentSource, onSourceChange } = props
 
   return (
     <Wrapper>
       <Logo>News App</Logo>
       <Divider />
-      <List items={items} />
+      <List items={items} currentSource={currentSource} onSourceChange={onSourceChange} />
     </Wrapper>
   )
 }

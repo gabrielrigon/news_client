@@ -8,15 +8,27 @@ const Wrapper = styled.ul`
   padding-left: 0;
 `
 
+const handledCurrent = (source, currentSource) => {
+  return source === currentSource
+}
+
 const List = props => {
-  const { items } = props
+  const { items, currentSource, onSourceChange } = props
 
   return (
     <Wrapper>
-      {items.map(item => {
-        const { name, key } = item
+      {items.map((item, key) => {
+        const { name, source } = item
 
-        return <ListItem name={name} key={key} />
+        return (
+          <ListItem
+            key={key}
+            name={name}
+            source={source}
+            active={handledCurrent(source, currentSource)}
+            onSourceChange={onSourceChange}
+          />
+        )
       })}
     </Wrapper>
   )

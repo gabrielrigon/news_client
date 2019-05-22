@@ -15,34 +15,37 @@ const Wrapper = styled.div`
 class News extends Component {
   componentDidMount = () => {
     const { fetchNews } = this.props
-    fetchNews()
+    fetchNews('all')
   }
 
   render() {
-    const { news, sources } = this.props
+    const { news, sourceName, source, sources, loadingNews, fetchNews } = this.props
 
     return (
       <Wrapper>
-        <Sidebar sources={sources} />
-        <Content news={news} />
+        <Sidebar sources={sources} currentSource={source} onSourceChange={fetchNews} />
+        <Content news={news} source={sourceName} loading={loadingNews} />
       </Wrapper>
     )
   }
 }
 
 const mapStateToProps = state => {
-  const { news, sources } = state.news
+  const { news, sourceName, source, sources, loadingNews } = state.news
 
   return {
     news,
-    sources
+    sourceName,
+    source,
+    sources,
+    loadingNews
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNews: () => {
-      dispatch(newsActions.fetch())
+    fetchNews: source => {
+      dispatch(newsActions.fetch(source))
     }
   }
 }

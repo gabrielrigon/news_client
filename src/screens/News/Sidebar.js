@@ -12,11 +12,11 @@ const Wrapper = styled.div`
 `
 
 const Sidebar = props => {
-  const { sources } = props
+  const { sources, currentSource, onSourceChange } = props
 
   return (
     <Wrapper>
-      <SidebarMenu items={sources} />
+      <SidebarMenu items={sources} currentSource={currentSource} onSourceChange={onSourceChange} />
     </Wrapper>
   )
 }

@@ -16,13 +16,35 @@ const PageTitle = styled.h1`
   margin-left: 2rem;
 `
 
+const Placeholder = styled.p`
+  color: #888;
+  margin-left: 2rem;
+`
+
+const handledTitle = title => {
+  return title || 'Latest news'
+}
+
+const handledPlaceholderMessage = loading => {
+  return loading ? 'Loading...' : 'There\'s nothing to show you, sorry. Try again later.'
+}
+
 const Content = props => {
-  const { news } = props
+  const { news, source, loading } = props
 
   return (
     <Wrapper>
-      <PageTitle>Content</PageTitle>
-      <ArticlesList items={news} />
+      <PageTitle>{handledTitle(source)}</PageTitle>
+      {
+        (news || []).length ? (
+          <ArticlesList items={news} />
+        ) : (
+            <Placeholder>
+              {handledPlaceholderMessage(loading)}
+            </Placeholder>
+          )
+      }
+
     </Wrapper>
   )
 }

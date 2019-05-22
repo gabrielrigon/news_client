@@ -35,8 +35,6 @@ const handledDate = stringDate => {
   const date = new Date(stringDate)
   const [day, month, year] = [date.getDate(), date.getMonth(), date.getFullYear()]
 
-  console.log({ day, month, year })
-
   return `${day}/${month}/${year}` || 'Last days'
 }
 

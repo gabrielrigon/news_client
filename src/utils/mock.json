@@ -1,12 +1,16 @@
 {
   "sources": [
     {
+      "name": "All",
+      "source": "all"
+    },
+    {
       "name": "The Guardian",
-      "key": "theGuardian"
+      "source": "theGuardian"
     },
     {
       "name": "The New York Times",
-      "key": "theNewYorkTimes"
+      "source": "theNewYorkTimes"
     }
   ],
   "news": [
