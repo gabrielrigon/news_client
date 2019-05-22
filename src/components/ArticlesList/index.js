@@ -12,7 +12,7 @@ const ArticlesList = props => {
 
   return (
     <List>
-      {items.map((item, key) => (
+      {(items || []).map((item, key) => (
         <Article key={key} item={item} />
       ))}
     </List>

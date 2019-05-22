@@ -23,17 +23,32 @@ const Details = styled.p`
   margin: 0;
 `
 
-const Article = props => {
-  console.log(props)
+const handledTitle = title => {
+  return title || 'No title'
+}
 
+const handledSource = source => {
+  return source || 'Unknow source'
+}
+
+const handledDate = stringDate => {
+  const date = new Date(stringDate)
+  const [day, month, year] = [date.getDate(), date.getMonth(), date.getFullYear()]
+
+  console.log({ day, month, year })
+
+  return `${day}/${month}/${year}` || 'Last days'
+}
+
+const Article = props => {
   const { title, url, date, source } = props.item || {}
 
   return (
     <Wrapper>
       <Link href={url} target="_blank">
-        {title || 'No title'}
+        {handledTitle(title)}
       </Link>
-      <Details>{`${source || 'Unknow source'} - ${date || 'Another day'}`}</Details>
+      <Details>{`${handledSource(source)} - Published at ${handledDate(date)}`}</Details>
     </Wrapper>
   )
 }

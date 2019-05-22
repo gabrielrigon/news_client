@@ -10,10 +10,11 @@ export const fetch = params => {
 
     return newsApi
       .fetch('')
-      .then(data => {
-        console.log(data)
+      .then(response => {
+        const {
+          data: { items: news }
+        } = response
 
-        const news = []
         dispatch({ type: FETCH_NEWS_SUCCESS, news })
       })
       .catch(fetchNewsError => {
