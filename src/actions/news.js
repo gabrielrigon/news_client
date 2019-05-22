@@ -12,8 +12,6 @@ export const fetch = params => {
 
     const { news } = mock
 
-    setTimeout(() => {
-      dispatch({ type: FETCH_NEWS_SUCCESS, news })
-    }, 2000)
+    dispatch({ type: FETCH_NEWS_SUCCESS, news })
   }
 }

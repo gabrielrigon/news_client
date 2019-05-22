@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import List from './List'
 
 const Wrapper = styled.div`
-  background-color: #fafafa;
+  background-color: #efefef;
   float: left;
   height: 100%;
   padding-left: 25%;

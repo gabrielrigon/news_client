@@ -1,5 +1,5 @@
-import { newsActions } from '../actions'
 import { mock } from '../utils'
+import { newsActions } from '../actions'
 
 const { FETCH_NEWS_REQUEST, FETCH_NEWS_SUCCESS, FETCH_NEWS_FAILURE } = newsActions
 
