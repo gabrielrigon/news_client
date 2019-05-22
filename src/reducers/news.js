@@ -23,12 +23,15 @@ const news = (state = initialState(), action = {}) => {
       return {
         ...state,
         source,
-        sourceName
+        sourceName,
+        news: [],
+        loadingNews: true
       }
 
     case FETCH_NEWS_REQUEST:
       return {
         ...state,
+        news: [],
         loadingNews: true
       }
 
@@ -44,7 +47,8 @@ const news = (state = initialState(), action = {}) => {
     case FETCH_NEWS_FAILURE:
       return {
         ...state,
-        loadingNews: true
+        news: [],
+        loadingNews: false
       }
 
     default:
